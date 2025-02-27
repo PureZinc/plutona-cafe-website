@@ -1,21 +1,21 @@
 const allMenuItems = [
     {
         name: "Quantum Espresso",
-        image: "/api/placeholder/400/300",
+        image: "item/quantumespresso.jpg",
         description: "A superposition of dark-roasted beans existing in multiple flavor states simultaneously until observed.",
         price: "4.50",
         featured: true
     },
     {
         name: "Nebula Latte",
-        image: "/api/placeholder/400/300",
+        image: "item/quantumespresso.jpg",
         description: "Swirling clouds of steamed milk with colorful galaxy-inspired syrups in a rich espresso universe.",
         price: "5.75",
         featured: true
     },
     {
         name: "Android's Dream",
-        image: "/api/placeholder/400/300",
+        image: "item/quantumespresso.jpg",
         description: "Electric blue matcha infused with lavender and silver pearls, the perfect fuel for synthetic beings.",
         price: "6.25",
         featured: true
@@ -43,7 +43,7 @@ function MenuItemList(featured = false) {
         const imageContainer = document.createElement("div");
         imageContainer.className = "menu-item-image";
         const image = document.createElement("img");
-        image.src = item.image;
+        image.src = `../images/${item.image}`;
         image.alt = item.name;
         imageContainer.appendChild(image);
 
@@ -56,7 +56,7 @@ function MenuItemList(featured = false) {
         contentDetails.innerText = item.description;
         const priceTag = document.createElement("span");
         priceTag.className = "menu-item-price";
-        priceTag.innerText = item.price;
+        priceTag.innerText = `$${item.price}`;
         contentContainer.append(contentHeader, contentDetails, priceTag);
 
         // Append All
