@@ -2,15 +2,17 @@
 <html lang="en">
   <head> </head>
   <body>
-    <header></header>
+    <header>
+      <script src="../js/head.js"></script>
+    </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="hero-content">
-        <h2>INTERSTELLAR COFFEE EXPERIENCE</h2>
+        <h2>THE CAFE EMBRACING THE FUTURE</h2>
         <p>
-          Journey through space and time with our cosmic brews and galactic
-          pastries. Where the love of science fiction meets caffeine addiction.
+          Journey through space and emerging technologies with our brews, made
+          with STEM lovers, space nerds, and futurists in mind.
         </p>
         <a href="#menu" class="cta-button">Explore Menu</a>
       </div>
@@ -19,76 +21,17 @@
     <!-- Featured Menu Section -->
     <section id="menu" class="featured-menu">
       <div class="glow-line"></div>
-      <div class="floating-particles">
-        <div
-          class="particle"
-          style="top: 20%; left: 10%; animation-delay: 0s"
-        ></div>
-        <div
-          class="particle"
-          style="top: 40%; left: 20%; animation-delay: 2s"
-        ></div>
-        <div
-          class="particle"
-          style="top: 70%; left: 30%; animation-delay: 5s"
-        ></div>
-        <div
-          class="particle"
-          style="top: 30%; left: 70%; animation-delay: 3s"
-        ></div>
-        <div
-          class="particle"
-          style="top: 80%; left: 80%; animation-delay: 7s"
-        ></div>
-      </div>
+      <div class="floating-particles"></div>
+
       <div class="section-header">
-        <h2>SPACECRAFT SPECIALS</h2>
+        <h2>FEATURED SPECIALS</h2>
         <p>
           Our signature drinks and treats are inspired by the vast cosmos and
           futuristic technology.
         </p>
       </div>
-      <div class="menu-grid">
-        <div class="menu-item">
-          <div class="menu-item-image">
-            <img src="/api/placeholder/400/300" alt="Quantum Espresso" />
-          </div>
-          <div class="menu-item-content">
-            <h3>Quantum Espresso</h3>
-            <p>
-              A superposition of dark-roasted beans existing in multiple flavor
-              states simultaneously until observed.
-            </p>
-            <span class="menu-item-price">$4.50</span>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-image">
-            <img src="/api/placeholder/400/300" alt="Nebula Latte" />
-          </div>
-          <div class="menu-item-content">
-            <h3>Nebula Latte</h3>
-            <p>
-              Swirling clouds of steamed milk with colorful galaxy-inspired
-              syrups in a rich espresso universe.
-            </p>
-            <span class="menu-item-price">$5.75</span>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-image">
-            <img src="/api/placeholder/400/300" alt="Android's Dream" />
-          </div>
-          <div class="menu-item-content">
-            <h3>Android's Dream</h3>
-            <p>
-              Electric blue matcha infused with lavender and silver pearls, the
-              perfect fuel for synthetic beings.
-            </p>
-            <span class="menu-item-price">$6.25</span>
-          </div>
-        </div>
-      </div>
+
+      <div class="menu-grid" id="featured-menu-items"></div>
     </section>
 
     <!-- About Section -->
@@ -115,15 +58,16 @@
           style="top: 60%; left: 90%; animation-delay: 8s"
         ></div>
       </div>
+
       <div class="about-container">
         <div class="about-text">
           <h2>OUR COSMIC ORIGIN</h2>
           <p>
-            Nebula Brew was established in 2142 as the first interplanetary
-            coffee chain, bringing Earth's finest beans to the outer colonies.
-            Now, in our retro-futuristic establishment, we recreate that
-            pioneering spirit with a blend of classic coffee craftsmanship and
-            advanced brewing technology.
+            Plutona.inc was established in 2002 as an interplanetary tech
+            company determined to bringing Earth's finest beans to the outer
+            colonies. Now, in our retro-futuristic establishment, we recreate
+            that pioneering spirit with a blend of classic coffee craftsmanship
+            and advanced brewing technology.
           </p>
           <p>
             Our baristas are trained in both traditional methods and quantum
@@ -241,7 +185,7 @@
       </div>
     </footer>
 
-    <script src="../js//head.js"></script>
     <script src="../js/components/header.js"></script>
+    <script src="../js/components/menu.js"></script>
   </body>
 </html>
