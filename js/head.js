@@ -4,7 +4,8 @@ const head = document.getElementsByTagName("head")[0];
 const cssFiles = [
     "global.css",
     "header.css",
-    "footer.css"
+    "footer.css",
+    "hero.css"
 ]
 
 const webDetails = {

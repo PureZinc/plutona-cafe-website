@@ -1,11 +1,11 @@
 const header = document.getElementsByTagName("header")[0];
 
 const navLinks = [
-  { text: "Home", href: "#home" },
-  { text: "Menu", href: "#menu" },
-  { text: "About Us", href: "#about" },
-  { text: "Events", href: "#events" },
-  { text: "Contact", href: "#contact" },
+  { text: "Home", href: "../pages/home.html" },
+  { text: "Menu", href: "../pages/menu.html" },
+  { text: "About Us", href: "../pages/about.html" },
+  { text: "Events", href: "../pages/events.html" },
+  { text: "Contact", href: "../pages/contact.html" },
 ];
 
 function Header(links) {
