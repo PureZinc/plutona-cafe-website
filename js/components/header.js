@@ -1,6 +1,6 @@
 const header = document.getElementsByTagName("header")[0];
 
-const menuItems = [
+const navLinks = [
   { text: "Home", href: "#home" },
   { text: "Menu", href: "#menu" },
   { text: "About Us", href: "#about" },
@@ -16,10 +16,12 @@ function Header(links) {
   logoDiv.className = "logo";
 
   const logoH1 = document.createElement("h1");
-  logoH1.textContent = "PLUTONA ";
+  logoH1.className = "uppercase";
+  logoH1.textContent = "plutona ";
 
   const logoSpan = document.createElement("span");
-  logoSpan.textContent = "CAFE";
+  logoSpan.className = "uppercase";
+  logoSpan.textContent = "cafe";
 
   logoH1.appendChild(logoSpan);
 
@@ -47,4 +49,4 @@ function Header(links) {
 
 
 // Append header container to header
-header.appendChild(Header(menuItems));
+header.appendChild(Header(navLinks));

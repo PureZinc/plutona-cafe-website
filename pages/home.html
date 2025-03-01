@@ -4,12 +4,14 @@
     <script src="../js/head.js"></script>
   </head>
   <body>
-    <header></header>
+    <header>
+      <script src="../js/components/header.js"></script>
+    </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="hero-content">
-        <h2>THE CAFE EMBRACING THE FUTURE</h2>
+        <h2 class="uppercase">the cafe embracing the future</h2>
         <p>
           Journey through space and emerging technologies with our brews, made
           with STEM lovers, space nerds, and futurists in mind.
@@ -21,53 +23,32 @@
     <!-- Featured Menu Section -->
     <section id="menu" class="featured-menu">
       <div class="glow-line"></div>
-      <div class="floating-particles"></div>
 
       <div class="section-header">
-        <h2>FEATURED SPECIALS</h2>
+        <h2 class="uppercase">featured specials</h2>
         <p>
-          Our signature drinks and treats are inspired by the vast cosmos and
-          futuristic technology.
+          Our signature brews are inspired by the vast cosmos and planets
+          inspired by futuristic technology.
         </p>
       </div>
 
-      <div class="menu-grid" id="featured-menu-items"></div>
+      <div class="menu-grid" id="featured-menu-items">
+        <script src="../js/components/menu.js"></script>
+      </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
-      <div class="floating-particles">
-        <div
-          class="particle"
-          style="top: 20%; left: 50%; animation-delay: 1s"
-        ></div>
-        <div
-          class="particle"
-          style="top: 50%; left: 30%; animation-delay: 4s"
-        ></div>
-        <div
-          class="particle"
-          style="top: 80%; left: 60%; animation-delay: 6s"
-        ></div>
-        <div
-          class="particle"
-          style="top: 30%; left: 10%; animation-delay: 2s"
-        ></div>
-        <div
-          class="particle"
-          style="top: 60%; left: 90%; animation-delay: 8s"
-        ></div>
-      </div>
-
       <div class="about-container">
         <div class="about-text">
-          <h2>OUR MISSION</h2>
+          <h2 class="uppercase">our mission</h2>
           <p>
             Plutona.inc was established in 2002 as an interplanetary tech
-            company. We are determined to bringing Earth's finest beans to the
-            outer colonies of the Solar System. Now, in our retro-futuristic
-            establishment, we recreate that pioneering spirit with a blend of
-            classic coffee craftsmanship and advanced brewing technology.
+            company. We established a cafe determined to bringing Earth's finest
+            beans to the outer colonies of the Solar System. Now, in our
+            retro-futuristic establishment, we recreate that pioneering spirit
+            with a blend of classic coffee craftsmanship and advanced brewing
+            technology.
           </p>
           <p>
             Our baristas are trained in both traditional methods and quantum
@@ -79,7 +60,7 @@
           <a href="#contact" class="cta-button">Contact Us</a>
         </div>
         <div class="about-image">
-          <img src="/api/placeholder/500/400" alt="Nebula Brew Cafe Interior" />
+          <img src="/api/placeholder/500/400" alt="Plutona Cafe Interior" />
         </div>
       </div>
     </section>
@@ -87,8 +68,9 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
       <div class="glow-line"></div>
+
       <div class="section-header">
-        <h2>ESTABLISH COMMUNICATION</h2>
+        <h2 class="uppercase">establish communication</h2>
         <p>Send us a transmission or visit our coordinates below.</p>
       </div>
       <div class="contact-container">
@@ -132,60 +114,8 @@
       </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-      <div class="footer-container">
-        <div class="footer-column">
-          <h3>NEBULA BREW</h3>
-          <p>
-            Where sci-fi meets coffee culture in a unique interstellar
-            experience.
-          </p>
-          <div class="social-links">
-            <a href="#"><span>FB</span></a>
-            <a href="#"><span>IG</span></a>
-            <a href="#"><span>TW</span></a>
-          </div>
-        </div>
-        <div class="footer-column">
-          <h3>NAVIGATION</h3>
-          <ul>
-            <li><a href="#home">Home Base</a></li>
-            <li><a href="#menu">Consumption Options</a></li>
-            <li><a href="#about">Historical Data</a></li>
-            <li><a href="#events">Scheduled Events</a></li>
-            <li><a href="#contact">Communication</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>OPENING HOURS</h3>
-          <ul>
-            <li>Monday - Friday: 07:00 - 23:00</li>
-            <li>Saturday: 08:00 - 00:00</li>
-            <li>Sunday: 08:00 - 22:00</li>
-            <li>Earth Standard Time</li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>NEWSLETTER</h3>
-          <p>Subscribe to receive cosmic updates and special offers.</p>
-          <form>
-            <div class="form-group">
-              <input type="email" placeholder="Your email frequency" />
-            </div>
-            <button type="submit" class="cta-button">Subscribe</button>
-          </form>
-        </div>
-      </div>
-      <div class="copyright">
-        <p>
-          &copy; 2025 Nebula Brew. All rights reserved across the known
-          universe.
-        </p>
-      </div>
+      <script src="../js/components/footer.js"></script>
     </footer>
-
-    <script src="../js/components/header.js"></script>
-    <script src="../js/components/menu.js"></script>
   </body>
 </html>

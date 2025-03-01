@@ -45,6 +45,10 @@ h4 {
     letter-spacing: 1px;
 }
 
+.uppercase {
+    text-transform: uppercase;
+}
+
 /* Hero Section */
 .hero {
     height: 80vh;
@@ -338,79 +342,6 @@ h4 {
 .form-group textarea {
     min-height: 120px;
     resize: vertical;
-}
-
-/* Footer */
-footer {
-    background-color: var(--darker-bg);
-    padding: 40px 20px;
-    border-top: 1px solid var(--primary-color);
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
-}
-
-.footer-column h3 {
-    color: var(--secondary-color);
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-}
-
-.footer-column ul {
-    list-style: none;
-}
-
-.footer-column ul li {
-    margin-bottom: 10px;
-}
-
-.footer-column ul li a {
-    color: rgba(226, 232, 240, 0.7);
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.footer-column ul li a:hover {
-    color: var(--secondary-color);
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.social-links a {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(138, 43, 226, 0.2);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 206, 209, 0.3);
-}
-
-.social-links a:hover {
-    background-color: var(--primary-color);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
-}
-
-.copyright {
-    margin-top: 40px;
-    text-align: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(226, 232, 240, 0.1);
-    color: rgba(226, 232, 240, 0.5);
-    font-size: 0.9rem;
 }
 
 /* Responsive Design */

@@ -3,7 +3,8 @@ const head = document.getElementsByTagName("head")[0];
 
 const cssFiles = [
     "global.css",
-    "header.css"
+    "header.css",
+    "footer.css"
 ]
 
 const webDetails = {
