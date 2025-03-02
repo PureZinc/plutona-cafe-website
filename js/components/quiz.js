@@ -20,5 +20,3 @@ const questions = [
         correctAnswer: "Europa"
     }
 ]
-
-

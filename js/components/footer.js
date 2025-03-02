@@ -1,8 +1,8 @@
 const footer = document.getElementsByTagName("footer")[0];
 
 const navItems = [
-    { text: 'Home Base', href: '#home' },
-    { text: 'Consumption Options', href: '#menu' },
+    { text: 'Home Base', href: '../pages/home.html' },
+    { text: 'Consumption Options', href: '../pages/menu.html' },
     { text: 'Historical Data', href: '#about' },
     { text: 'Scheduled Events', href: '#events' },
     { text: 'Communication', href: '#contact' }
