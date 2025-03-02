@@ -1,0 +1,1 @@
+let localPoints = localStorage.getItem("loyaltyPoints");
