@@ -11,7 +11,7 @@ class Loyalty {
             let spendClass = extraClasses.find(cls => cls.startsWith("loyalty-spend-"));
             if (spendClass) {
                 let spendAmount = parseInt(spendClass.replace("loyalty-spend-", ""), 10);
-                element.addEventListener("onclick", () => {
+                element.addEventListener("click", () => {
                     let message = this.spendLoyaltyPoints(spendAmount);
                     this.messageElement.innerText = message;
                 })
@@ -21,17 +21,22 @@ class Loyalty {
             let addClass = extraClasses.find(cls => cls.startsWith("loyalty-add-"));
             if (addClass) {
                 let addAmount = parseInt(spendClass.replace("loyalty-add-", ""), 10);
-                element.addEventListener("onclick", () => {
+                element.addEventListener("click", () => {
                     let message = this.addLoyaltyPoints(addAmount);
                     this.messageElement.innerText = message;
                 })
             }
+
+            this.updateLoyaltyDisplay();
         });
     }
 
     setLoyaltyPoints(val) {
         localStorage.setItem("loyaltyPoints", val);
-        this.loyaltyValueElm.innerText = String.toString(val);
+        if (this.loyaltyValueElm) {
+            this.loyaltyValueElm.innerText = String(val);
+        }
+        console.log(val);
     }
 
     getLoyaltyPoints() {
@@ -57,6 +62,14 @@ class Loyalty {
             return "Not enough points!";
         }
     }
+
+    updateLoyaltyDisplay() {
+        if (this.loyaltyValueElm) {
+            this.loyaltyValueElm.innerText = String(this.getLoyaltyPoints());
+        }
+    }
 }
 
-new Loyalty();
+document.addEventListener("DOMContentLoaded", () => {
+    new Loyalty();
+});

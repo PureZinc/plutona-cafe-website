@@ -5,7 +5,9 @@ const cssFiles = [
     "global.css",
     "header.css",
     "footer.css",
-    "hero.css"
+    "hero.css",
+    "menu.css",
+    "events.css"
 ]
 
 const webDetails = {

@@ -81,6 +81,10 @@ function MenuItemList(appender, filter) {
 
 }
 
+function MenuItemQuiz() {
+    // Where the Coffee Quiz will take place!
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     MenuItemList(featuredMenuGrid, allMenuItems.filter(item => item.featured));
     MenuItemList(menuGrid, allMenuItems);
