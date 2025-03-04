@@ -1,11 +1,9 @@
-/* CSS Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Custom Properties */
 :root {
     --primary-color: #8a2be2;
     --secondary-color: #00ced1;
@@ -19,7 +17,6 @@
     --font-body: "Exo 2", sans-serif;
 }
 
-/* Typography */
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Exo+2:wght@300;400;600&display=swap");
 
 body {
