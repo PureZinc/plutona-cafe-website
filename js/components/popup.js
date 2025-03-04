@@ -66,7 +66,7 @@ class Popup {
         popupContainer.id = "popupContainer";
 
         const popupControlPanel = document.createElement("div");
-        ["green", "red", "yellow"].map(color => {
+        ["green", "red", "yellow"].forEach(color => {
             const panel = document.createElement("div");
             panel.className = `panel-light ${color}`;
             popupControlPanel.appendChild(panel);
@@ -105,7 +105,7 @@ class Popup {
 
     open() {
         this.overlay.style.display = 'flex';
-        this.container.classList.add("slide-up");
+        this.container.classList.add("open");
         this.timer.reset();
         this.timer.start();
     }
@@ -117,7 +117,10 @@ class Popup {
 
     handleAccept() {
         alert('Mission Accepted!');
-        this.close();
+        this.container.classList.replace("open", "close");
+        setTimeout(() => {
+            this.close();
+        }, 500)
     }
 }
 

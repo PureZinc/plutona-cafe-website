@@ -7,7 +7,6 @@ const cssFiles = [
     "footer.css",
     "hero.css",
     "menu.css",
-    "events.css",
     "popup.css"
 ]
 
