@@ -48,22 +48,19 @@ class PopupTimer {
 
 class Popup {
     constructor(header, content, duration = 60) {
+        this.header = header;
+        this.details = content;
         this.overlay = document.getElementById("popupOverlay");
-
-        this.renderElement(header, content);
-        
-        this.container = document.getElementById("popupContainer");
-        this.closeBtn = document.getElementById("popupClose");
-        this.acceptBtn = document.getElementById("acceptBtn");
+        this.container = null;
         this.timer = new PopupTimer(duration, () => this.close());
 
-        this.setupEventListeners();
+        this.renderElement();
     }
 
-    renderElement(header, details) {
-        const popupContainer = document.createElement("div");
-        popupContainer.className = "popup-container";
-        popupContainer.id = "popupContainer";
+    renderElement() {
+        this.container = document.createElement("div");
+        this.container.className = "popup-container";
+        this.container.id = "popupContainer";
 
         const popupControlPanel = document.createElement("div");
         ["green", "red", "yellow"].forEach(color => {
@@ -80,9 +77,9 @@ class Popup {
         const popupContent = document.createElement("div");
         popupContent.className = "popup-content";
         const popupHeader = document.createElement("h3");
-        popupHeader.innerText = header;
+        popupHeader.innerText = this.header;
         const popupDetails = document.createElement("p");
-        popupDetails.innerText = details;
+        popupDetails.innerText = this.details;
         popupContent.append(popupHeader, popupDetails);
 
         const popupTimerElm = document.createElement("div");
@@ -94,25 +91,26 @@ class Popup {
         acceptButton.className = "cta-button";
         acceptButton.innerText = "Accept Offer";
 
-        popupContainer.append(popupControlPanel, closeButton, popupContent, popupTimerElm, acceptButton);
-        this.overlay.appendChild(popupContainer);
-    }
+        this.container.append(popupControlPanel, closeButton, popupContent, popupTimerElm, acceptButton);
 
-    setupEventListeners() {
-        this.closeBtn.addEventListener('click', () => this.close());
-        this.acceptBtn.addEventListener('click', () => this.handleAccept());
+        closeButton.addEventListener('click', () => this.close());
+        acceptButton.addEventListener('click', () => this.handleAccept());
     }
 
     open() {
+        this.renderElement();
+        this.overlay.appendChild(this.container);
         this.overlay.style.display = 'flex';
         this.container.classList.add("open");
-        this.timer.reset();
-        this.timer.start();
     }
 
     close() {
-        this.overlay.style.display = 'none';
-        this.timer.stop();
+        if (this.container) {
+            this.container.classList.replace("open", "close");
+            this.overlay.removeChild(this.container);
+            this.overlay.style.display = 'none';
+            this.container = null;
+        }
     }
 
     handleAccept() {
@@ -133,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     window.addEventListener('scroll', function scrollHandler() {
-        if (window.scrollY > document.documentElement.scrollHeight * 0.15) {
+        if (window.scrollY > document.documentElement.scrollHeight * 0.17) {
             popup.open();
             window.removeEventListener('scroll', scrollHandler);
         }
