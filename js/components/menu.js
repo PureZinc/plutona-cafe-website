@@ -1,50 +1,156 @@
+// Reusing the code from loyalty.js to avoid errors!
+class LoyaltyPoints {
+    constructor() {
+        this.points = this.getPoints();
+    }
+
+    getPoints() {
+        let points = localStorage.getItem("loyaltyPoints");
+        if (!points) {
+            localStorage.setItem("loyaltyPoints", 0);
+            return 0;
+        }
+        return parseInt(points, 10);
+    }
+
+    setPoints() {
+        localStorage.setItem("loyaltyPoints", this.points);
+    }
+
+    addPoints(val) {
+        this.points += val;
+        this.setPoints();
+        this.sendMessage(`Congratz! You just got ${val} points. You now have ${this.points} loyalty points!`)
+    }
+
+    removePoints(val) {
+        if (val > this.points) {
+            this.sendMessage(`You don't have enough loyalty points for this transaction! Total: ${this.points}`)
+        } else {
+            this.points -= val;
+            this.setPoints();
+            this.sendMessage(`Congratz! You just spent ${val} points. You now have ${this.points} loyalty points!`)
+        }
+    }
+
+    sendMessage(message) {
+        alert(message);
+    }
+}
+
+const loyaltyClass = new LoyaltyPoints();
+
 const allMenuItems = [
     {
         name: "Earthling Joe",
-        image: "../images/tsp.jpg",
+        image: "nebula-latte",
         description: "Our typical, down-to-Earth cup of coffee, sourced from the finest continents of Africa & Asia. Choice of roast and sweetening.",
-        price: "3.25",
+        price: 3.25,
         featured: false
     },
     {
         name: "Quantum Espresso",
-        image: "item/quantumespresso.jpg",
+        image: "nebula-latte",
         description: "Espresso made with a blended superposition of dark-roasted beans, existing in multiple flavor states simultaneously until observed.",
-        price: "4.50",
+        price: 4.50,
         featured: true
     },
     {
         name: "Nebula Latte",
-        image: "item/quantumespresso.jpg",
+        image: "nebula-latte",
         description: "Swirling clouds of steamed milk with colorful galaxy-inspired syrups of your choice in a rich espresso universe.",
-        price: "5.75",
+        price: 5.75,
         featured: true
     },
     {
         name: "Android's Dream",
-        image: "item/quantumespresso.jpg",
+        image: "nebula-latte",
         description: "Matcha green tea infused with lavender and silver pearls, the perfect fuel for synthetic beings.",
-        price: "6.25",
+        price: 6.25,
         featured: true
     },
     {
         name: "Nuclear Blend",
-        image: "../images/tsp.jpg",
+        image: "nebula-latte",
         description: "Medium-roast coffee with an extra kick of caffeine, vitamins, and enough nuclear energy to fuel an android's supercomputer brain.",
-        price: "4.25",
+        price: 4.25,
         featured: false
     },
     {
         name: "Absolute Zero Brew",
-        image: "../xxx",
+        image: "nebula-latte",
         description: "Coffee beans of any roast, brewed in slower H2O molecules just before Earth rotates one time around it's axis.",
-        price: "4.25",
+        price: 4.25,
         featured: false
     }
 ]
+const convert = (price) => price.toFixed(2);
+const getImgURL = (image) => `../images/menu/${image}.jpg`;
 
 const featuredMenuGrid = document.getElementById("featured-menu-items");
 const menuGrid = document.getElementById("full-menu-items");
+
+
+// Menu Popup
+class MenuPopup {
+    constructor(item) {
+        this.overlay = document.getElementById("popupOverlay");
+        this.item = item;
+        this.container = null;
+    }
+
+    renderElement() {
+        this.container = document.createElement("div");
+        this.container.className = "popup-container";
+        this.container.id = `popupContainer-${this.item}`;
+
+        const closeButton = document.createElement("span");
+        closeButton.className = "popup-close";
+        closeButton.innerHTML = "&times;";
+        closeButton.addEventListener('click', () => this.close());
+
+        const popupContent = document.createElement("div");
+        popupContent.className = "popup-content";
+        const popupHeader = document.createElement("h3");
+        popupHeader.innerText = this.item.name;
+        const popupDetails = document.createElement("p");
+        popupDetails.innerText = this.item.description;
+        popupContent.append(popupHeader, popupDetails);
+
+        const popupTimerElm = document.createElement("div");
+        popupTimerElm.id = "popupTimer";
+        popupTimerElm.className = "popup-timer";
+
+        const acceptButton = document.createElement("button");
+        acceptButton.id = "acceptBtn";
+        acceptButton.className = "cta-button";
+        acceptButton.innerText = `Buy For $${convert(this.item.price)}`;
+        acceptButton.addEventListener("click", () => {
+            loyaltyClass.removePoints(this.item.price * 100);
+            this.close();
+        })
+
+        this.container.append(closeButton, popupContent, popupTimerElm, acceptButton);
+    }
+
+    open() {
+        this.renderElement();
+        this.overlay.appendChild(this.container);
+        this.overlay.style.display = 'flex';
+        this.container.classList.add("open");
+    }
+
+    close() {
+        if (this.container) {
+            this.container.classList.replace("open", "close");
+            setTimeout(() => {
+                this.overlay.removeChild(this.container);
+                this.overlay.style.display = 'none';
+                this.container = null;
+            }, 500);
+        }
+    }
+}
 
 function MenuItemElement(item) {
     const itemContainer = document.createElement("div");
@@ -54,7 +160,7 @@ function MenuItemElement(item) {
     const imageContainer = document.createElement("div");
     imageContainer.className = "menu-item-image";
     const image = document.createElement("img");
-    image.src = `../images/${item.image}`;
+    image.src = getImgURL(item.image);
     image.alt = item.name;
     imageContainer.appendChild(image);
 
@@ -67,8 +173,12 @@ function MenuItemElement(item) {
     contentDetails.innerText = item.description;
     const priceTag = document.createElement("span");
     priceTag.className = "menu-item-price";
-    priceTag.innerText = `$${item.price}`;
+    priceTag.innerText = `$${convert(item.price)}`;
     contentContainer.append(contentHeader, contentDetails, priceTag);
+
+    // Add Popup
+    const itemPopup = new MenuPopup(item);
+    itemContainer.addEventListener("click", () => itemPopup.open());
 
     // Append All
     itemContainer.append(imageContainer, contentContainer);
@@ -87,6 +197,7 @@ function MenuItemList(appender, filter) {
 }
 
 
+// Menu Quiz
 const quizQuestions = [
     {
         ask: "What is your favorite planet in our Solar System?",
