@@ -46,3 +46,9 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+@media (max-width: 480px) {
+    .hero h2 {
+        font-size: 2rem;
+    }
+}
